@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message index{% endblock %}
+
+{% block body %}
+     {% block show %}
+    <h1>Message index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Heure</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+
+                <td>{{ message.heure ? message.heure|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ message.contenu }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('message_show', {'idMessage': message.idMessage}) }}">Afficher</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a type="button" class="btn btn-outline-primary" href="{{ path('message_new') }}">Envoyer Message</a>
+{% endblock %}
+{% endblock %}

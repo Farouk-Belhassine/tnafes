@@ -1,0 +1,26 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+<title>Categorie Afficher</title>
+{% endblock %}
+
+
+    {% block titre %}
+<div class="card-header">Afficher Categorie   {% endblock %}
+{% block container %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Thematique</th>
+            <td>{{ categorie_event.thematique }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_event_index') }}">Retour</a>
+
+    <a href="{{ path('categorie_event_edit', {'idCategEvent': categorie_event.idCategEvent}) }}">Modifier</a>
+
+    {{ include('categorie_event/_delete_form.html.twig') }}
+{% endblock %}

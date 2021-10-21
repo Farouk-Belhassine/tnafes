@@ -1,0 +1,55 @@
+{% extends 'basedisplay.html.twig' %}
+
+{% block title %}Reclamation{% endblock %}
+
+{% block body %}
+    <h1>Reclamation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdReclamation</th>
+                <td>{{ reclamation.idReclamation }}</td>
+            </tr>
+            <tr>
+                <th>NomUser</th>
+                <td>{{ reclamation.nomUser }}</td>
+            </tr>
+            <tr>
+                <th>PrenomUser</th>
+                <td>{{ reclamation.prenomUser }}</td>
+            </tr>
+            <tr>
+                <th>Numtel</th>
+                <td>{{ reclamation.numtel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ reclamation.email }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reclamation.description }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ reclamation.objet }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ reclamation.etat }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ reclamation.date ? reclamation.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateTraitement</th>
+                <td>{{ reclamation.dateTraitement ? reclamation.dateTraitement|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reclamation_index') }}"><img src="{{ asset('images/undo.png') }}" width="40" height="40"></a>
+
+{% endblock %}

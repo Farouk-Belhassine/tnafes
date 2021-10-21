@@ -1,0 +1,120 @@
+{% extends 'pub.html.twig' %}
+{% block Posts %}
+    <div class="blog">
+    <div class="container">
+    <div class="row">
+
+    <!-- Blog Content -->
+
+    <div class="col-lg-8">
+        <script >
+            /* Voici la fonction javascript qui change la propriété "display"
+            pour afficher ou non le div selon que ce soit "none" ou "block". */
+            function togg(){
+                let d1 = document.getElementById("d1");
+                if(getComputedStyle(d1).display != "none"){
+                    d1.style.display = "none";
+                } else {
+                    d1.style.display = "block";
+                }
+            };
+            function AfficherMasquer()
+            {
+                divInfo = document.getElementById('d1');
+
+                if (divInfo.style.display == 'none')
+                    divInfo.style.display = 'block';
+                else
+                    divInfo.style.display = 'none';
+
+            }
+
+        </script>
+    <div class="blog_post_container">
+    <div class="blog_post">
+        <div class="blog_post_image">
+            <img src="{{ vich_uploader_asset(publication,'imageFile') }}" height="300">
+            <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                <div class="blog_post_day">{{ publication.datePublication ? publication.datePublication|date('d') : '' }}</div>
+                <div class="blog_post_month">{{ publication.datePublication ? publication.datePublication|date('m-y') : '' }}</div>
+            </div>
+        </div>
+        <div class="blog_post_title"><h1>Votre calme avec tnafes</h1></div>
+        <div class="blog_post_text">
+            <p>{{ publication.contenu }}</p>
+        </div>
+        <div class="blog_post_meta">
+            <ul>
+                <li class="blog_post_meta_item">
+                    <button id="btn" style="color:#a5a5a5;border: none;background-color: #feffff" onClick="togg()">
+                        {% if ( publication.nbcomment ==0) %}
+                           Aucun commentaire ajouté
+                        {% else %}
+                        {{ publication.nbcomment }} commentaires
+                        {% endif %}
+                    </button>
+
+
+                    <div class="blog_post_text" id="d1" style="display:none">
+                        {% if app.user %}
+                        {% for comment in commentaires %}
+                            {% if app.user.id==comment.idclientComment.id %}
+                            <p style="color: #0a1219">Vous</p>
+                                <form method="post" action="{{ path('commentaire_delete2', {'idComment': comment.idComment}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.idComment) }}">
+                                    <p> {{ comment.contenuComment }} : {{ comment.datecomment ? comment.datecomment|date('Y-m-d'):''}}
+                                        <button id="btn" style="color:#a5a5a5;border: none;background-color: #feffff"> <img src="{{ asset('images/delete.png') }}" width="25" height="25"></button>
+                                    </p>
+                                </form>
+
+                            {% else %}
+                            <p style="color: #0a1219">{{ comment.nomClient }} {{ comment.prenomClient }}</p>
+                    <p> {{ comment.contenuComment }} : {{ comment.datecomment ? comment.datecomment|date('Y-m-d'):''}}</p>
+                                {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
+
+                </li>
+            </ul>
+
+        </div>
+
+
+        {{ include('publication/_formC.html.twig', {'button_label': 'Commenter'}) }}
+
+
+
+    </div>
+    </div>
+
+
+    <div class="col-lg-4 sidebar_col">
+
+        <div class="sidebar_latest_posts">
+            <div class="sidebar_title">Récemment publiée</div>
+            <div class="latest_posts_container">
+                <ul>
+                {% for pub in publications %}
+                    <!-- Latest Post -->
+                    <li class="latest_post clearfix">
+                        <div class="latest_post_image">
+                            <a href="{{ path('publication_front', {'idPub': pub.idPub}) }}"><img src="{{ vich_uploader_asset(pub,'imageFile') }}" width="60" height="60"></a>
+                        </div>
+                        <div class="latest_post_content">
+                            <div class="latest_post_title trans_200"><a href="{{ path('publication_front', {'idPub': pub.idPub}) }}">Méditation et Bien-être</a></div>
+                            <div class="latest_post_meta">
+
+                                <div class="latest_post_date trans_200">{{ pub.datePublication ? pub.datePublication|date('Y-m-d'):''}}</div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

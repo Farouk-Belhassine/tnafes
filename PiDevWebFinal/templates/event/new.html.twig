@@ -1,0 +1,17 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+
+<title>nouveau evenement</title>
+
+{% endblock %}
+{% block titre %}
+<div class="card-header"> Creer un nouveau evenement
+{% endblock %}
+{% block container %}
+
+
+    {{ include('event/_form.html.twig') }}
+
+    <a href="{{ path('event_index') }}">Retour</a>
+{% endblock %}

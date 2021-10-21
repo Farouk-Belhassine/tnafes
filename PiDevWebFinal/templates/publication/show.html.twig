@@ -1,0 +1,49 @@
+{% extends 'basedisplay.html.twig' %}
+
+{% block titre %}
+    Publication
+{% endblock %}
+{% block table %}
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Contenu</th>
+                <td>{{ publication.contenu }}</td>
+            </tr>
+            <tr>
+                <th>DatePublication</th>
+                <td>{{ publication.datePublication ? publication.datePublication|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{vich_uploader_asset(publication,'imageFile') }}" width="400" height="200"></td>
+            </tr>
+
+            <tr>
+                <th>Les commentaires</th>
+            </tr>
+            {% for commentaire in commentaires %}
+
+                    <tr>
+                        <td>{{ commentaire.contenuComment }}</td>
+                        <td>{{ commentaire.datecomment ? commentaire.datecomment|date('Y-m-d'):''}}</td>
+                        <td><a href="{{ path('commentaire_show', {'idComment': commentaire.idComment}) }}"><img src="{{ asset('images/detail.png') }}" height="30" width="30"></a></td>
+                    </tr>
+
+            {% else %}
+
+                <tr>
+                    <th>Aucun commentaire ajouté</th>
+
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('publication_index') }}"><img src="{{ asset('images/undo.png') }}" width="40" height="40"></a>
+
+
+    {{ include('publication/_delete_form.html.twig') }}
+{% endblock %}
+

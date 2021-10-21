@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rendez-vous</title>
+	<link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
+	<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+	<!--===============================================================================================-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Travelix Project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/bootstrap4/bootstrap.min.css') }}">
+	<link href="{{ asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/animate.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}">
+	<link href="{{ asset('plugins/colorbox/colorbox.css') }}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/blog_styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/blog_responsive.css') }}">
+	<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ asset('styles/bootstrap4/popper.js') }}"></script>
+	<script src="{{ asset('styles/bootstrap4/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+	<script src="{{ asset('plugins/easing/easing.js') }}"></script>
+	<script src="{{ asset('js/custom.js') }}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+</head>
+
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+
+		<!-- Top Bar -->
+
+
+
+		<!-- Main Navigation -->
+
+		{% include 'navbar.html.twig' %}
+
+	</header>
+
+
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll"><img src="{{ asset('/images/images/meditation.jpg') }}">
+			<div class="home_slider_content text-center">
+				<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+					<h1>votre </h1>
+					<h1> calme avec Tnafes</h1>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="table100 ver6 m-b-110">
+		{% block body %}
+		<table data-vertable="ver6">
+			<thead>
+			<tr class="row100 head">
+				<th class="column100 column1" data-column="column1"></th>
+				<th class="column100 column2" data-column="column2">Sunday</th>
+				<th class="column100 column3" data-column="column3">Monday</th>
+				<th class="column100 column4" data-column="column4">Tuesday</th>
+				<th class="column100 column5" data-column="column5">Wednesday</th>
+				<th class="column100 column6" data-column="column6">Thursday</th>
+				<th class="column100 column7" data-column="column7">Friday</th>
+				<th class="column100 column8" data-column="column8">Saturday</th>
+			</tr>
+			</thead>
+		</table>
+		{% endblock %}
+	</div>
+
+
+	<!-- Blog -->
+
+
+
+	<!-- Footer -->
+
+	{% include 'footer.html.twig' %}
+
+
+
+
+
+	<!--===============================================================================================-->
+	<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<!--===============================================================================================-->
+
+
+
+	<!--===============================================================================================-->
+	<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+	<!--===============================================================================================-->
+	<script src="{{ asset('js/main.js') }}"></script>
+
+	<script src="{{ asset('js/blog_custom.js') }}"></script>
+	<script src="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+	<script src="{{ asset('plugins/easing/easing.js') }}"></script>
+	<script src="{{ asset('js/custom.js') }}"></script>
+	<script src="{{ asset('plugins/colorbox/jquery.colorbox-min.js') }}"></script>
+	<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ asset('styles/bootstrap4/popper.js') }}"></script>
+	<script src="{{ asset('styles/bootstrap4/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('plugins/parallax-js-master/parallax.min.js') }}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+	<script src="{{ asset('js/contact_custom.js') }}"></script>
+</div>
+</body>
+
+
+</html>

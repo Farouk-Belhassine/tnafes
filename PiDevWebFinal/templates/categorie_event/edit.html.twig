@@ -1,0 +1,18 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+
+<title>Modifier CategorieEvent</title>
+{% endblock %}
+
+
+{% block titre %}
+<div class="card-header">Modifier Categorie   {% endblock %}
+{% block container %}
+
+    {{ include('categorie_event/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('categorie_event_index') }}">Retour</a>
+
+    {{ include('categorie_event/_delete_form.html.twig') }}
+{% endblock %}

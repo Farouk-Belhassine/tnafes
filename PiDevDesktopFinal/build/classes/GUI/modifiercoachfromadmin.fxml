@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="763.0" prefWidth="1183.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.modifiercoachfromadmincontroller">
+   <children>
+      <VBox layoutY="-1.0" prefHeight="763.0" prefWidth="246.0" style="-fx-background-color: #000000;" />
+      <ImageView fitHeight="86.0" fitWidth="110.0" layoutX="51.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/123.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="670.0" mnemonicParsing="false" onAction="#logout" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Déconnexion" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Sign_Out_32px.png" />
+               </image></ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="627.0" mnemonicParsing="false" onAction="#settings_security" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Paramètres et sécurité" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Slider__32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnActivity" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="358.0" mnemonicParsing="false" onAction="#gérerActivite" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Activités" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Box_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnAbonnement" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="313.0" mnemonicParsing="false" onAction="#gererAbonnement" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Abonnements" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Xbox_Menu_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="144.0" mnemonicParsing="false" onAction="#displayCustomers" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Clients" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Person_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnReclam" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="186.0" mnemonicParsing="false" onAction="#GérerReclamation" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Reclamations" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Open_Envelope_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnAcceuil" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="100.0" mnemonicParsing="false" onAction="#acceuil" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Accueil" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_Open_Envelope_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnPub" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="227.0" mnemonicParsing="false" onAction="#GererPub" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Publications" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/comment-publication.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btncoach" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="270.0" mnemonicParsing="false" onAction="#gérerCoach" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Coach" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/development.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnEvent" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="526.0" mnemonicParsing="false" onAction="#gérerEvent" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Evénements" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/event.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnCateg" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="401.0" mnemonicParsing="false" onAction="#gerercateg" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Catégories" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/category.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btncategEvent" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="577.0" mnemonicParsing="false" onAction="#gérerCategevent" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Catégorie évenements" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/category.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnParticipation" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="485.0" mnemonicParsing="false" onAction="#gérerParticipation" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Participations" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/participant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnArticle" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-18.0" layoutY="443.0" mnemonicParsing="false" onAction="#gérerArticle" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@../../build/style.css" text="Articles" textFill="#e7e5e5">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/application.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnmodifier" layoutX="625.0" layoutY="648.0" mnemonicParsing="false" onAction="#modifiercoach" text="Modifier ce coach" />
+      <TextField fx:id="tfid" layoutX="519.0" layoutY="368.0" />
+      <TextField fx:id="tfnom" layoutX="797.0" layoutY="368.0" />
+      <TextField fx:id="tfprenom" layoutX="519.0" layoutY="425.0" />
+      <TextField fx:id="tfemail" layoutX="797.0" layoutY="425.0" />
+      <TextField fx:id="tfnum_tel" layoutX="519.0" layoutY="481.0" />
+      <TextField fx:id="tfsalaire" layoutX="519.0" layoutY="546.0" />
+      <ChoiceBox fx:id="cbrole" layoutX="797.0" layoutY="481.0" prefWidth="150.0" />
+      <Label layoutX="383.0" layoutY="372.0" text="ID du coach à modifier" />
+      <Label layoutX="708.0" layoutY="372.0" text="Nouveau nom" />
+      <Label layoutX="411.0" layoutY="429.0" text="Nouveau prenom" />
+      <Label layoutX="708.0" layoutY="429.0" text="Nouveau mail" />
+      <Label layoutX="381.0" layoutY="485.0" text="Nouveau numeru du tel" />
+      <Label layoutX="709.0" layoutY="485.0" text="Nouveau role" />
+      <Label layoutX="415.0" layoutY="550.0" text="Nouveau salaire" />
+      <TableView fx:id="tvcoach" layoutX="362.0" layoutY="110.0" prefHeight="200.0" prefWidth="709.0">
+         <columns>
+            <TableColumn fx:id="tvid" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="tvnom" prefWidth="94.0" text="Nom" />
+            <TableColumn fx:id="tvprenom" prefWidth="81.0" text="Prenom" />
+            <TableColumn fx:id="tvemail" prefWidth="148.0" text="Email" />
+            <TableColumn fx:id="tvnum_tel" prefWidth="113.0" text="Numero tel" />
+            <TableColumn fx:id="tvrole" minWidth="0.0" prefWidth="104.0" text="Role" />
+            <TableColumn fx:id="tvsalaire" prefWidth="90.0" text="Salaire" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

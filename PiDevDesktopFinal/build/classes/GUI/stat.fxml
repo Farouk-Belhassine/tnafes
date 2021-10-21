@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatController">
+   <children>
+      <AnchorPane layoutX="114.0" layoutY="39.0" prefHeight="450.0" prefWidth="620.0">
+         <children>
+            <BarChart fx:id="barChart" layoutX="-46.0" layoutY="-15.0" prefHeight="450.0" prefWidth="620.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="-46.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="-15.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </BarChart>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

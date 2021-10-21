@@ -1,0 +1,116 @@
+{% extends 'baseback2.html.twig' %}
+
+
+
+{%  block TbaleTitle %}
+    <div class="card-header">Table des articles<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+{% block search %}
+    <li class="nav-item">
+
+        <form class="search-bar">
+            <input type="text" id="search" class="form-control" placeholder="Enter keywords">
+
+        </form>
+
+    </li>
+{% endblock %}
+
+{% block TbaleContent %}
+
+
+
+    <h1>Article index</h1>
+
+    <table  id="t" class="table" >
+        <thead>
+            <tr>
+               {#  <th>IdArticle</th> #}
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="all">
+        {% for article in articles  %}
+            <tr>
+               {#  <td>{{ article.idArticle }}</td> #}
+                <td>{{ article.titre }}</td>
+                {% if ((article.description)|length >20)%}
+                    <td>{{ article.description|slice(0,20)~'...' }}</td>
+                {% else %}
+                    <td>{{ article.description }}</td>
+                {% endif%}
+
+                <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
+                {#  <td>{{ article.image }}</td> #}
+                 <td>  <img src="{{ vich_uploader_asset(article,'imageFile') }}" height="60" width="60"> </td>
+
+                <td>
+                    <a href="{{ path('article_show', {'idArticle': article.idArticle}) }}">show</a>
+                    <a href="{{ path('article_edit', {'idArticle': article.idArticle}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tbody id="search"></tbody>
+
+
+
+    </table>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#search").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('searchArticlex') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#search').append('<tr><td>'+obj.titre+'</td><td>'+obj.description+'</td><td>'+obj.date+'  </td><td></td><td><a href="article/'+obj.idArticle+'">show</a> </br><a href="article/'+obj.idArticle+'/edit">edit</a></td></tr>');
+                            });
+                        }
+                        //$('#t tbody#search').append('<tr><td> '+obj.lieu+'  </td><td>    '+obj.nbPlace+'  </td><td>'+obj.descriptions+' </td><td>'+obj.dateEvent+' </td><td>'+obj.getcategory+' </td><td>'+obj.Description+'</td><td><td><a href="event/'+obj.idEvent+'/edit">Modifier</a></td></tr>');
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#search').empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+
+
+
+    <a href="{{ path('article_new') }}">Create new</a>
+
+
+{% endblock %}

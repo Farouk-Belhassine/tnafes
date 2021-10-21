@@ -1,0 +1,16 @@
+{% extends 'baseback2.html.twig' %}
+
+
+{%  block TbaleTitle %}
+    <div class="card-header">Table des activitées<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+{#  <title>New Activite</title> #}
+
+{% block TbaleContent %}
+    <h1>Create new Activite</h1>
+
+    {{ include('activite/_form.html.twig') }}
+
+    <a href="{{ path('activite_index') }}">back to list</a>
+{% endblock %}

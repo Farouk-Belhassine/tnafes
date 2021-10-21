@@ -1,0 +1,11 @@
+{% extends 'Rendez-vous.html.twig' %}
+
+{% block title %}New Consultation{% endblock %}
+
+{% block body %}
+    <h1>Prendre Rendez-vous</h1>
+
+    {{ include('consultation/_form.html.twig') }}
+
+    <a class="btn btn-info" href="{{ path('consultation_indexclient') }}">Retour</a>
+{% endblock %}

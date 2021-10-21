@@ -1,0 +1,13 @@
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate' }})}}
+    {% if app.user %}
+
+   {{ form_widget(form.nom,{'value':app.user.nom}) }}
+        {{ form_widget(form.prenom,{'value':app.user.prenom}) }}
+        {{ form_widget(form.eMail,{'value':app.user.email}) }}
+{% endif %}
+{{ form_row(form.captchaCode) }}
+<button type="submit" id="form_submit_button"class="form_submit_button button trans_200">{{ button_label|default('Confirmer') }}<span></span><span></span><span></span></button>
+
+
+{{ form_end(form) }}

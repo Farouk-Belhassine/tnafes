@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Reclamations</title>
+	<link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
+	<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+	<!--===============================================================================================-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Travelix Project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/bootstrap4/bootstrap.min.css') }}">
+	<link href="{{ asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/animate.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}">
+	<link href="{{ asset('plugins/colorbox/colorbox.css') }}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/blog_styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('styles/blog_responsive.css') }}">
+	<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ asset('styles/bootstrap4/popper.js') }}"></script>
+	<script src="{{ asset('styles/bootstrap4/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+	<script src="{{ asset('plugins/easing/easing.js') }}"></script>
+	<script src="{{ asset('js/custom.js') }}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+</head>
+
+<body>
+
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+
+
+		<!-- Main Navigation -->
+	{% include 'navbar.html.twig' %}
+
+	</header>
+
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll"><img src="{{ asset('/images/images/meditation.jpg') }}">
+			<div class="home_slider_content text-center">
+				<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+					<h1>votre </h1>
+					<h1> calme avec Tnafes</h1>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="table100 ver6 m-b-110">
+		{% block show %}
+		<table data-vertable="ver6">
+			<thead>
+			<tr class="row100 head">
+				<th class="column100 column1" data-column="column1"></th>
+				<th class="column100 column2" data-column="column2">Sunday</th>
+				<th class="column100 column3" data-column="column3">Monday</th>
+				<th class="column100 column4" data-column="column4">Tuesday</th>
+				<th class="column100 column5" data-column="column5">Wednesday</th>
+				<th class="column100 column6" data-column="column6">Thursday</th>
+				<th class="column100 column7" data-column="column7">Friday</th>
+				<th class="column100 column8" data-column="column8">Saturday</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Lawrence Scott</td>
+				<td class="column100 column2" data-column="column2">8:00 AM</td>
+				<td class="column100 column3" data-column="column3">--</td>
+				<td class="column100 column4" data-column="column4">--</td>
+				<td class="column100 column5" data-column="column5">8:00 AM</td>
+				<td class="column100 column6" data-column="column6">--</td>
+				<td class="column100 column7" data-column="column7">5:00 PM</td>
+				<td class="column100 column8" data-column="column8">8:00 AM</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Jane Medina</td>
+				<td class="column100 column2" data-column="column2">--</td>
+				<td class="column100 column3" data-column="column3">5:00 PM</td>
+				<td class="column100 column4" data-column="column4">5:00 PM</td>
+				<td class="column100 column5" data-column="column5">--</td>
+				<td class="column100 column6" data-column="column6">9:00 AM</td>
+				<td class="column100 column7" data-column="column7">--</td>
+				<td class="column100 column8" data-column="column8">--</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Billy Mitchell</td>
+				<td class="column100 column2" data-column="column2">9:00 AM</td>
+				<td class="column100 column3" data-column="column3">--</td>
+				<td class="column100 column4" data-column="column4">--</td>
+				<td class="column100 column5" data-column="column5">--</td>
+				<td class="column100 column6" data-column="column6">--</td>
+				<td class="column100 column7" data-column="column7">2:00 PM</td>
+				<td class="column100 column8" data-column="column8">8:00 AM</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Beverly Reid</td>
+				<td class="column100 column2" data-column="column2">--</td>
+				<td class="column100 column3" data-column="column3">5:00 PM</td>
+				<td class="column100 column4" data-column="column4">5:00 PM</td>
+				<td class="column100 column5" data-column="column5">--</td>
+				<td class="column100 column6" data-column="column6">9:00 AM</td>
+				<td class="column100 column7" data-column="column7">--</td>
+				<td class="column100 column8" data-column="column8">--</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Tiffany Wade</td>
+				<td class="column100 column2" data-column="column2">8:00 AM</td>
+				<td class="column100 column3" data-column="column3">--</td>
+				<td class="column100 column4" data-column="column4">--</td>
+				<td class="column100 column5" data-column="column5">8:00 AM</td>
+				<td class="column100 column6" data-column="column6">--</td>
+				<td class="column100 column7" data-column="column7">5:00 PM</td>
+				<td class="column100 column8" data-column="column8">8:00 AM</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Sean Adams</td>
+				<td class="column100 column2" data-column="column2">--</td>
+				<td class="column100 column3" data-column="column3">5:00 PM</td>
+				<td class="column100 column4" data-column="column4">5:00 PM</td>
+				<td class="column100 column5" data-column="column5">--</td>
+				<td class="column100 column6" data-column="column6">9:00 AM</td>
+				<td class="column100 column7" data-column="column7">--</td>
+				<td class="column100 column8" data-column="column8">--</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Rachel Simpson</td>
+				<td class="column100 column2" data-column="column2">9:00 AM</td>
+				<td class="column100 column3" data-column="column3">--</td>
+				<td class="column100 column4" data-column="column4">--</td>
+				<td class="column100 column5" data-column="column5">--</td>
+				<td class="column100 column6" data-column="column6">--</td>
+				<td class="column100 column7" data-column="column7">2:00 PM</td>
+				<td class="column100 column8" data-column="column8">8:00 AM</td>
+			</tr>
+
+			<tr class="row100">
+				<td class="column100 column1" data-column="column1">Mark Salazar</td>
+				<td class="column100 column2" data-column="column2">8:00 AM</td>
+				<td class="column100 column3" data-column="column3">--</td>
+				<td class="column100 column4" data-column="column4">--</td>
+				<td class="column100 column5" data-column="column5">8:00 AM</td>
+				<td class="column100 column6" data-column="column6">--</td>
+				<td class="column100 column7" data-column="column7">5:00 PM</td>
+				<td class="column100 column8" data-column="column8">8:00 AM</td>
+			</tr>
+			</tbody>{% endblock %}
+		</table>
+	</div>
+
+	<!-- About -->
+	<div class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5">
+					
+					<!-- About - Image -->
+
+					<div class="about_image">
+						<img src="/images/man.png" alt="">
+					</div>
+
+				</div>
+
+				<div class="col-lg-4">
+					
+					<!-- About - Content -->
+
+					<div class="about_content">
+						<div class="logo_container about_logo">
+							<div class="logo"><a href="#"><img src="/images/logo.png" alt="">travelix</a></div>
+						</div>
+						<p class="about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula iaculis consequat nisl. Nunc et suscipit urna pretium.</p>
+						<ul class="about_social_list">
+							<li class="about_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li class="about_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+							<li class="about_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li class="about_social_item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							<li class="about_social_item"><a href="#"><i class="fa fa-behance"></i></a></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<div class="col-lg-3">
+					
+					<!-- About Info -->
+
+					<div class="about_info">
+						<ul class="contact_info_list">
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="/images/placeholder.svg" alt=""></div></div>
+								<div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
+							</li>
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="/images/phone-call.svg" alt=""></div></div>
+								<div class="contact_info_text">2556-808-8613</div>
+							</li>
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="/images/message.svg" alt=""></div></div>
+								<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
+							</li>
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="/images/planet-earth.svg" alt=""></div></div>
+								<div class="contact_info_text"><a href="https://colorlib.com">www.colorlib.com</a></div>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Google Map -->
+		
+	<div class="travelix_map">
+		<div id="google_map" class="google_map">
+			<div class="map_container">
+				<div id="map"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	{% include 'footer.html.twig' %}
+
+	<!-- Copyright -->
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 order-lg-1 order-2  ">
+					<div class="copyright_content d-flex flex-row align-items-center">
+						<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+					</div>
+				</div>
+				<div class="col-lg-9 order-lg-2 order-1">
+					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
+						<div class="footer_nav">
+							<ul class="footer_nav_list">
+								<li class="footer_nav_item"><a href="index.html">home</a></li>
+								<li class="footer_nav_item"><a href="about.html">about us</a></li>
+								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
+								<li class="footer_nav_item"><a href="blog.html">news</a></li>
+								<li class="footer_nav_item"><a href="#">contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<!--===============================================================================================-->
+<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+
+
+
+<!--===============================================================================================-->
+<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('js/main.js') }}"></script>
+
+<script src="{{ asset('js/blog_custom.js') }}"></script>
+<script src="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+<script src="{{ asset('plugins/easing/easing.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('plugins/colorbox/jquery.colorbox-min.js') }}"></script>
+<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('styles/bootstrap4/popper.js') }}"></script>
+<script src="{{ asset('styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/parallax-js-master/parallax.min.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="{{ asset('js/contact_custom.js') }}"></script>
+
+
+</body>
+
+</html>

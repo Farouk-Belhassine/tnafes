@@ -1,0 +1,36 @@
+{% extends 'basedisplay.html.twig' %}
+
+
+{% block titre %}
+    Statistiques réclamation
+{% endblock %}
+{% block table %}
+    <canvas id="reclamations" width="400" height="100"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script>
+        let reclamations = document.querySelector("#reclamations")
+        let recGraph = new Chart(reclamations, {
+            type: "bar",
+            data: {
+
+                labels: {{ dates|raw }},
+                datasets: [{
+                    label: "Nombre de réclamation",
+                    data: {{ reclamationCount|raw }},
+                    backgroundColor:'#99d6ff',
+
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        })
+    </script>
+
+{% endblock %}

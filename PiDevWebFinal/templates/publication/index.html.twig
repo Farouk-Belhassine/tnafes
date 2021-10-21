@@ -1,0 +1,48 @@
+{% extends 'basedisplay.html.twig' %}
+{% block titre %}
+    Liste des publications
+{% endblock %}
+{% block table %}
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Contenu</th>
+                <th>DatePublication</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publication in publications %}
+            <tr>
+
+                <td>{{ publication.contenu }}</td>
+                <td>{{ publication.datePublication ? publication.datePublication|date('Y-m-d') : '' }}</td>
+                <td><img src="{{vich_uploader_asset(publication,'imageFile') }}" width="80" height="80"></td>
+                <td>
+                    <a href="{{ path('publication_show', {'idPub': publication.idPub}) }}"><img src="{{ asset('images/detail.png') }}" height="30" width="30"></a>
+                    <a href="{{ path('publication_edit', {'idPub': publication.idPub}) }}"><img src="{{ asset('images/refresh.png') }}" height="25" width="25"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune publication</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_new') }}">Ajouter une nouvelle publication</a>
+
+{% endblock %}
+
+    {% block pagination %}
+        <div >
+
+            {{ knp_pagination_render(publications) }}
+
+        </div>
+    {% endblock %}

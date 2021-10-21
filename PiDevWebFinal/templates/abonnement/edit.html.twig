@@ -1,0 +1,15 @@
+{% extends 'baseadd.html.twig' %}
+
+
+
+{% block body %}
+    {% block titreForm %}Modifier abonnement{% endblock %}
+    {% block addForm %}
+
+    {{ include('abonnement/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('abonnement_index') }}">Retour</a>
+
+    {{ include('abonnement/_delete_form.html.twig') }}
+{% endblock %}
+{% endblock %}

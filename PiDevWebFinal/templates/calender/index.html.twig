@@ -1,0 +1,47 @@
+{% extends 'baseback.html.twig' %}
+
+
+
+
+
+						{% block container %}
+                            <!DOCTYPE html>
+                            <html lang='en'>
+                            <head>
+
+
+                                <meta charset='utf-8' />
+                                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+                                <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
+
+                                <div id="calendrier">
+                                </div>
+                                <script>
+
+
+                                        window.onload = () => {
+                                        let calendarElt = document.querySelector("#calendrier")
+                                        let calendar = new FullCalendar.Calendar(calendarElt, {
+                                        initialView: 'dayGridMonth',
+                                        locale: 'fr',
+                                        timeZone: 'Europe/Paris',
+                                        headerToolbar: {
+                                        start: 'prev,next today',
+                                        center: 'title',
+                                        end: 'dayGridMonth,timeGridWeek'
+                                    },
+                                        events: {{ data|raw }}
+
+                                    })
+
+
+                                        calendar.render()
+                                    }
+
+                                </script>
+                            </head>
+
+                            </html>
+                            <a href="{{ path('event_index') }}">Retour</a>
+
+                        {% endblock %}
