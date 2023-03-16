@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Message{% endblock %}
+
+{% block body %}
+    {% block show %}
+
+    <h1>Envoyer Message</h1>
+
+    {{ include('message/_form.html.twig') }}
+
+    <a class="btn btn-info" href="{{ path('message_index') }}">Retour</a>
+{% endblock %}
+{% endblock %}

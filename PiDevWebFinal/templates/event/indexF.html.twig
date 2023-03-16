@@ -1,0 +1,113 @@
+{% extends 'FrontEvents.html.twig' %}
+            {% block Events %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+<!-- CSS -->
+<style>
+    #maCarte{
+        height: 400px;
+    }
+</style>
+</head>
+<body>
+<div id="maCarte"></div>
+
+<!-- Fichiers Javascript -->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<script>
+    var villes = {
+        "Bizerte": { "lat": 37.27442, "lon": 9.87391 },
+        "Hamammet": { "lat":  36.2359, "lon": 10.3700 },
+        "Sousse": { "lat": 35.821430, "lon": 10.634422 },
+    };
+    var tableauMarqueurs = [];
+
+    // On initialise la carte
+    var carte = L.map('maCarte').setView([48.852969, 2.349903], 13);
+
+    // On charge les "tuiles"
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        // Il est toujours bien de laisser le lien vers la source des données
+        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+        minZoom: 1,
+        maxZoom: 20
+    }).addTo(carte);
+
+    var marqueurs = L.markerClusterGroup();
+
+    // On personnalise le marqueur
+    var icone = L.icon({
+        iconUrl: "/images/location.png",
+        iconSize: [50, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [0, -50]
+    })
+
+    // On parcourt les différentes villes
+    for(ville in villes){
+        // On crée le marqueur et on lui attribue une popup
+        var marqueur = L.marker([villes[ville].lat, villes[ville].lon], {icon: icone}); //.addTo(carte); Inutile lors de l'utilisation des clusters
+        marqueur.bindPopup("<p>"+ville+"</p>");
+        marqueurs.addLayer(marqueur); // On ajoute le marqueur au groupe
+
+        // On ajoute le marqueur au tableau
+        tableauMarqueurs.push(marqueur);
+    }
+    // On regroupe les marqueurs dans un groupe Leaflet
+    var groupe = new L.featureGroup(tableauMarqueurs);
+
+    // On adapte le zoom au groupe
+    carte.fitBounds(groupe.getBounds().pad(0.5));
+
+    carte.addLayer(marqueurs);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row intro_items">
+
+    <!-- Intro Item -->
+    {% for event in events %}
+
+    <div class="col-lg-4 intro_col">
+        <div class="intro_item">
+            <div class="intro_item_overlay"></div>
+            <!-- Image by https://unsplash.com/@dnevozhai -->
+            <img class="intro_item_background"  src="{{vich_uploader_asset(event,'imageFile') }}" width="80" height="80">
+            <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
+                <div class="intro_date">{{ event.dateEvent|date('d/m/Y') }}</div>
+                <div class="button intro_button"><div class="button_bcg"></div><a href="{{ path('event_show2', {'idEvent': event.idEvent}) }}">Details<span></span><span></span><span></span></a></div>
+                <div class="intro_center text-center">
+                    <h1>{{ event.lieu }}</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+
+            {% endblock %}

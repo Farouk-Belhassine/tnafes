@@ -1,0 +1,113 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+
+<title>Event </title>
+{% endblock %}
+{% block titre %}
+<div class="card-header">Afficher les evenements
+{% endblock %}
+    {% block bar %}
+        <li class="nav-item">
+            <form class="search-bar">
+                <input type="text" id="search" class="form-control" placeholder="Enter keywords">
+
+            </form>
+        </li>
+    {% endblock %}
+{% block container %}
+
+
+
+    <table id="t" class="table">
+        <thead>
+            <tr>
+                {# <th>IdEvent</th> #}
+                {#  <th>IdCoach</th> #}
+                <th>Lieu</th>
+                <th>Nombre de Place</th>
+                                <th>Description</th>
+
+                <th>Date</th>
+                <th>Categorie</th>
+                <th>Image de l'evenement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="all">
+         {% for event in events %}
+        {# % for categorie_event in categorie_events %} #}
+
+            <tr>
+{# <td>{{ event.idEvent }}</td>
+                <td>{{ event.idCoach }}</td>#}
+                <td>{{ event.lieu }}</td>
+                <td>{{ event.nbPlace }}</td>
+                                <td>{{ event.descriptions }}</td>
+
+                <td>{{ event.dateEvent ? event.dateEvent|date('Y-m-d') : ''  }}</td>
+ <td>{{ event.getcategory() }}</td>
+
+               <td> <img src="{{vich_uploader_asset(event,'imageFile') }}" width="80" height="80"></td>
+
+                <td>
+                    <a href="{{ path('event_show', {'idEvent': event.idEvent}) }}">Afficher</a>
+                    <a href="{{ path('event_edit', {'idEvent': event.idEvent}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody> <tbody id="search"></tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#search").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('searchEvent') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#t tbody#all').hide();
+
+                                $('#t tbody#search').append('<tr><td> '+obj.lieu+'  </td><td>    '+obj.nbPlace+'  </td><td>'+obj.descriptions+' </td><td>'+obj.dateEvent+' </td><td>'+obj.getcategory+' </td><td>'+obj.Description+'</td><td><td><a href="event/'+obj.idEvent+'">Afficher</a></td><td><a href="event/'+obj.idEvent+'/edit">Modifier</a></td></tr>');
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#search').empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+    <a href="{{ path('event_new') }}">Ajouter</a>
+
+    <a href="{{ path('calender') }}">Calendrier</a></div>
+
+
+
+
+
+{% endblock %}

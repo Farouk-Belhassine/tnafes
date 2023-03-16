@@ -1,0 +1,41 @@
+{% extends 'Message.html.twig' %}
+
+{% block title %}Message{% endblock %}
+
+{% block body %}
+    {% block show %}
+        <h1>Message</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>IdMessage</th>
+                <td>{{ message.idMessage }}</td>
+            </tr>
+            <tr>
+                <th>nom Client</th>
+                <td>{{ client.nom }}</td>
+
+            </tr>
+            <tr>
+                <th>nom Coach</th>
+                <td>{{ coach.nom }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{{ message.heure ? message.heure|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ message.contenu }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('message_indexclient') }}">back to list</a>
+
+
+
+        {{ include('message/_delete_formclient.html.twig') }}
+    {% endblock %}
+{% endblock %}

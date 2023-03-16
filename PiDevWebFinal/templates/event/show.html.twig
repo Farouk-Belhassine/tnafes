@@ -1,0 +1,40 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+<title>Afficher evenement</title>
+{% endblock %}
+{% block titre %}
+<div class="card-header">Afficher evenement {% endblock %}
+{% block container %}
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Lieu</th>
+                <td>{{ event.lieu }}</td>
+            </tr>
+            <tr>
+                <th>NbPlace</th>
+                <td>{{ event.nbPlace }}</td>
+            </tr>
+            <tr>
+                <th>DateEvent</th>
+                <td>{{ event.dateEvent ? event.dateEvent|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ event.getcategory() }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td> <img src="{{vich_uploader_asset(event,'imageFile') }}" width="80" height="80"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('event_index') }}">back to list</a>
+
+    <a href="{{ path('event_edit', {'idEvent': event.idEvent}) }}">edit</a>
+
+    {{ include('event/_delete_form.html.twig') }}
+{% endblock %}

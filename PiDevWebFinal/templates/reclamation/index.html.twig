@@ -1,0 +1,110 @@
+{% extends 'basedisplay.html.twig' %}
+
+{% block titre %}
+    Liste des réclamations
+{% endblock %}
+{% block table %}
+
+
+    <table class="table" id="t">
+        <thead>
+            <tr>
+
+                <th>NomUser</th>
+                <th>PrenomUser</th>
+                <th>Numtel</th>
+                <th>Email</th>
+                <th>Description</th>
+                <th>Objet</th>
+                <th>Etat</th>
+                <th>Date</th>
+                <th>DateTraitement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="all">
+        {% for reclamation in reclamations %}
+            <tr>
+
+                <td>{{ reclamation.nomUser }}</td>
+                <td>{{ reclamation.prenomUser }}</td>
+                <td>{{ reclamation.numtel }}</td>
+                <td>{{ reclamation.email }}</td>
+                <td>{{ reclamation.description }}</td>
+                <td>{{ reclamation.objet }}</td>
+                {% if reclamation.etat=='Traitée'  %}
+                <td><img src="{{ asset('images/check.png') }}" height="40" width="40"></td>
+                    {% elseif reclamation.etat=='En attente' %}
+                    <td><img src="{{ asset('images/wait.png') }}" height="40" width="40"></td>
+                        {% else %}
+                    <td><img src="{{ asset('images/loading.png') }}" height="40" width="40"></td>
+                {% endif %}
+                <td>{{ reclamation.date ? reclamation.date|date('Y-m-d') : '' }}</td>
+                <td>{{ reclamation.dateTraitement ? reclamation.dateTraitement|date('Y-m-d') : '' }}</td>
+                <td>
+                    {% if reclamation.etat=='Traitée'  %}
+                    <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}" onclick="return false;"><img src="{{ asset('images/refresh.png') }}" height="30" width="30"></a>
+                    {% else %}
+                        <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}"><img src="{{ asset('images/refresh.png') }}" height="30" width="30"></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune réclamation</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tbody id="search">
+        </tbody>
+
+    </table>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#search").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('searchrec') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#search').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#t tbody#all').hide();
+
+                             $('#t tbody#search').append('<tr><td> '+obj.nomUser+'  </td><td>    '+obj.prenomUser+'  </td><td>'+obj.numtel+' </td><td>'+obj.email+' </td><td>'+obj.description+' </td><td>'+obj.objet+' </td><td>'+obj.etat+' </td>'+obj.date+' </td><td>'+obj.dateTraitement+' </td><td><td><a href="reclamation/'+obj.idReclamation+'/edit">Modifier</a></td></tr>');
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#search').empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+{% block pagination %}
+    <div >
+
+            {{ knp_pagination_render(reclamations) }}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Tnafes - ajout coach</title>
+  <!-- loader-->
+    <link href="{{asset('assets/css/pace.min.css')}}" rel="stylesheet"/>
+    <script src="{{asset('assets/js/pace.min.js')}}"></script>
+    <!--favicon-->
+    <link rel="icon" href="{{asset('assets/images/favicon.ico')}}" type="image/x-icon">
+    <!-- simplebar CSS-->
+    <link href="{{asset('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{{asset('assets/css/sidebar-menu.css')}}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{{asset('assets/css/app-style.css')}}" rel="stylesheet"/>
+  
+  
+</head>
+
+<body class="bg-theme bg-theme1">
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+ <!--Start sidebar-wrapper-->
+	  {% include 'navbar2.html.twig' %}
+   <!--End sidebar-wrapper-->
+
+<!--Start topbar header-->
+      {% include 'topbarheader.html.twig' %}
+<!--End topbar header-->
+
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+        <div class="card">
+           <div class="card-body">
+           <div class="card-title">ajout coach</div>
+           <hr>
+            {{ form_start(formcoach,{'attr': {'novalidate': 'novalidate'}}) }}
+           <div class="form-group">
+            <label for="{{formcoach.nom.vars.id}}">Nom</label>
+            <input value="{{formcoach.nom.vars.value}}" name="{{formcoach.nom.vars.full_name}}" id="{{formcoach.nom.vars.id}}" type="text" class="form-control" placeholder="Nom du coach">
+           {% do formcoach.nom.setRendered %}
+          {{ form_errors(formcoach.nom) }}
+           </div>
+           <div class="form-group">
+            <label for="{{formcoach.prenom.vars.id}}">Prenom</label>
+            <input value="{{formcoach.prenom.vars.value}}" name="{{formcoach.prenom.vars.full_name}}" id="{{formcoach.prenom.vars.id}}" type="text" class="form-control" placeholder="Prenom du coach">
+           {% do formcoach.prenom.setRendered %}
+          {{ form_errors(formcoach.prenom) }}
+           </div>
+           <div class="form-group">
+            <label for="{{formcoach.email.vars.id}}">Email</label>
+            <input value="{{formcoach.email.vars.value}}" name="{{formcoach.email.vars.full_name}}" id="{{formcoach.email.vars.id}}" type="text" class="form-control" placeholder="Mail du coach">
+            {% do formcoach.email.setRendered %}
+          {{ form_errors(formcoach.email) }}
+           </div>
+           <div class="form-group">
+            <label for="{{formcoach.numtel.vars.id}}">Mobile</label>
+            <input value="{{formcoach.numtel.vars.value}}" name="{{formcoach.numtel.vars.full_name}}" id="{{formcoach.numtel.vars.id}}" type="text" class="form-control" placeholder="Numero du coach">
+           {% do formcoach.numtel.setRendered %}
+          {{ form_errors(formcoach.numtel) }}
+           </div>
+           <div class="form-group">
+            <label for="{{formcoach.password.vars.id}}">Password</label>
+            <input value="{{formcoach.password.vars.value}}" name="{{formcoach.password.vars.full_name}}" id="{{formcoach.password.vars.id}}" type="password" class="form-control" placeholder="mot de passe">
+            {% do formcoach.password.setRendered %}
+          {{ form_errors(formcoach.password) }}
+           </div>
+           <div class="form-group">
+            <label for="{{formcoache.salaire.vars.id}}">Salaire</label>
+            <input value="{{formcoache.salaire.vars.value}}" name="{{formcoache.salaire.vars.full_name}}" id="{{formcoache.salaire.vars.id}}" type="text" class="form-control" placeholder="salaire">
+            {% do formcoache.salaire.setRendered %}
+          {{ form_errors(formcoache.salaire) }}
+           </div>
+           <div class="form-group">
+            <label for="{{formcoache.role.vars.id}}">role</label>
+            <input value="{{formcoache.role.vars.value}}" name="{{formcoache.role.vars.full_name}}" id="{{formcoache.role.vars.id}}" type="text" class="form-control" placeholder="role">
+           {% do formcoache.role.setRendered %}
+          {{ form_errors(formcoache.role) }}
+           </div>
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Inscrire</button>
+          </div>
+          {% do formcoach.inscrire.setRendered %}
+          {{ form_end(formcoach) }}
+         </div>
+         </div>
+      </div>
+    </div><!--End Row-->
+
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+   </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+	<!--Start footer-->
+	<footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Copyright © 2021 Tnafes
+        </div>
+      </div>
+    </footer>
+	<!--End footer-->
+	
+	<!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+		<li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+      
+     </div>
+   </div>
+  <!--end color switcher-->
+   
+  </div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/popper.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+
+<!-- simplebar js -->
+<script src="{{asset('assets/plugins/simplebar/js/simplebar.js')}}"></script>
+<!-- sidebar-menu js -->
+<script src="{{asset('assets/js/sidebar-menu.js')}}"></script>
+
+<!-- Custom scripts -->
+<script src="{{asset('assets/js/app-script.js')}}"></script>
+
+
+</body>
+</html>

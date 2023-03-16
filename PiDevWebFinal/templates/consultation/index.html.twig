@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consultation index{% endblock %}
+
+{% block body %}
+    <h1>Consultation index</h1>
+    <h3 class="text-warning">Consultation en Attente</h3>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Date</th>
+                <th>Heure</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for consultation in consultations %}
+            {% if consultation.etat == "att" %}
+
+            <tr>
+
+                <td>{{ consultation.date ? consultation.date|date('Y-m-d') : '' }}</td>
+                <td>{{ consultation.heure ? consultation.heure|date('H:i:s') : '' }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('consultation_show', {'idConsultation': consultation.idConsultation}) }}">Afficher</a>
+
+                </td>
+                <td>
+                    <a  type="button" class="btn btn-outline-success" href="acpcons/{{ consultation.idConsultation }}">accepter</a>
+                    <a  type="button" class="btn btn-outline-danger" href="refcons/{{ consultation.idConsultation }}">refuser</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+    <h3 class="text-success">Consultation Accepté</h3>
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Date</th>
+            <th>Heure</th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for consultation in consultations %}
+            {% if consultation.etat == "acc" %}
+
+                <tr>
+
+                    <td>{{ consultation.date ? consultation.date|date('Y-m-d') : '' }}</td>
+                    <td>{{ consultation.heure ? consultation.heure|date('H:i:s') : '' }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('consultation_show', {'idConsultation': consultation.idConsultation}) }}">Afficher</a>
+
+                    </td>
+
+                </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <h3 class ="text-danger">Consultation Refuser</h3>
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Date</th>
+            <th>Heure</th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for consultation in consultations %}
+            {% if consultation.etat == "ref" %}
+
+                <tr>
+
+                    <td>{{ consultation.date ? consultation.date|date('Y-m-d') : '' }}</td>
+                    <td>{{ consultation.heure ? consultation.heure|date('H:i:s') : '' }}</td>
+                    <td>
+
+                        {{ include('consultation/_delete_form.html.twig') }}
+                    </td>
+
+                </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

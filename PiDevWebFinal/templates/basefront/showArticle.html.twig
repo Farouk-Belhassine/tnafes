@@ -1,0 +1,48 @@
+{% extends 'basefront2.html.twig' %}
+
+
+
+
+{% block Art %}
+
+    <!-- Blog Content -->
+
+    <div class="col-lg-8">
+
+        <div class="blog_post_container">
+
+
+
+                <div class="blog_post">
+
+                    <div class="blog_post_image">
+                        <img src="{{ vich_uploader_asset(article,'imageFile') }}" height="200" width="200">
+                        {#  <img src="images/blog_1.jpg" alt="https://unsplash.com/@anniespratt"> #}
+
+
+                    </div>
+                    <u><font color="#ff7f50"><h3>Titre :</h3></font></u>
+                    <div class="blog_post_title"><mark><a href="#"><font color="#000000">{{ article.titre }}</font></a></mark></div>
+                    <div class="blog_post_text">
+
+                        <div class="blog_post_title"><mark><a href="#" ><font color="#000000">{{ article.description|slice(0,45)~'...' }}</font></a></mark></div>
+
+                    </div>
+
+                    <div class="button"><div class="button_bcg"></div><a href="#">QR Code<span></span><span></span><span></span></a></div>
+
+
+                </div>
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+{% endblock %}

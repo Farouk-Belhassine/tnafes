@@ -1,0 +1,17 @@
+{% extends 'baseback2.html.twig' %}
+
+
+{%  block TbaleTitle %}
+    <div class="card-header">Table des articles<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+
+{% block TbaleContent %}
+    <h1>Edit Article</h1>
+
+    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

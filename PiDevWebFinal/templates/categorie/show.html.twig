@@ -1,0 +1,35 @@
+{% extends 'baseback2.html.twig' %}
+
+
+{%  block TbaleTitle %}
+    <div class="card-header">Table des catégories<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+{#  <title>Categorie</title> #}
+
+{% block TbaleContent %}
+    <h1>Categorie</h1>
+
+    <table class="table">
+        <tbody>
+           {#  <tr>
+                <th>IdCategorie</th>
+                <td>{{ categorie.idCategorie }}</td>
+            </tr> #}
+            <tr>
+                <th>NomCategorie</th>
+                <td>{{ categorie.nomCategorie }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ categorie.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_index') }}">back to list</a>
+
+    <a href="{{ path('categorie_edit', {'idCategorie': categorie.idCategorie}) }}">edit</a>
+
+    {{ include('categorie/_delete_form.html.twig') }}
+{% endblock %}

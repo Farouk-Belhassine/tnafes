@@ -1,0 +1,42 @@
+
+{% extends 'basedisplay.html.twig' %}
+
+{% block titre %}
+    Liste des abonnements
+{% endblock %}
+{% block table %}
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>IdAbonnement</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for abonnement in abonnements %}
+            <tr>
+                <td>{{ abonnement.idAbonnement }}</td>
+                <td>{{ abonnement.dateDebut|date('Y-m-d') }}</td>
+                <td>{{ abonnement.dateFin|date('Y-m-d') }}</td>
+                <td>{{ abonnement.type }}</td>
+                <td>
+                    <a href="{{ path('abonnement_show', {'idAbonnement': abonnement.idAbonnement}) }}">Détails</a>
+                    <a href="{{ path('abonnement_edit', {'idAbonnement': abonnement.idAbonnement}) }}">Modifier</a>
+                    <a href="{{ path('abonnement_listea') }}">export en pdf</a>
+                    <a href="{{ path('abonnement_stat') }}">Statistiques</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun abonnement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

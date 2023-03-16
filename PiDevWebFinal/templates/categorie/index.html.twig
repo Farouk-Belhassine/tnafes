@@ -1,0 +1,39 @@
+{% extends 'baseback2.html.twig' %}
+
+{#  <title>Categorie index</title> #}
+{%  block TbaleTitle %}
+<div class="card-header">Table des catégories<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+{% block TbaleContent %}
+    <h1>Categorie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {#  <th>Id de catégorie</th>#}
+                <th>Nom de la catégorie</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+               {#  <td>{{ categorie.idCategorie }}</td> #}
+                <td>{{ categorie.nomCategorie }}</td>
+                <td>{{ categorie.description }}</td>
+                <td>
+                    <a href="{{ path('categorie_show', {'idCategorie': categorie.idCategorie}) }}">show</a>
+                    <a href="{{ path('categorie_edit', {'idCategorie': categorie.idCategorie}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_new') }}">Create new</a>
+{% endblock %}

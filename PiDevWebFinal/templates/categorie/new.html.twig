@@ -1,0 +1,16 @@
+{% extends 'baseback2.html.twig' %}
+
+{#  <title>Categorie index</title> #}
+{%  block TbaleTitle %}
+    <div class="card-header">Table des catégories<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+{#  <title>New Categorie</title> #}
+
+{% block TbaleContent %}
+    <h1>Create new Categorie</h1>
+
+    {{ include('categorie/_form.html.twig') }}
+
+    <a href="{{ path('categorie_index') }}">back to list</a>
+{% endblock %}

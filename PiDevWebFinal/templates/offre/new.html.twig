@@ -1,0 +1,79 @@
+{% extends 'Abonnements.html.twig' %}
+
+
+    {% block content %}
+        <!-- Offers -->
+
+        <div class="home_title"><h1 align="center">our offers</h1></div>
+
+        <div class="offers">
+
+            <!-- Search -->
+
+            <div class="search">
+                <div class="search_inner">
+
+                    <!-- Search Contents -->
+
+                    <div class="container fill_height no-padding">
+                        <div class="row fill_height no-margin">
+                            <div class="col fill_height no-padding">
+
+                                <!-- Search Tabs -->
+
+                                <div class="search_tabs_container">
+                                    <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+                                        <div class="search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/suitcase.png" alt=""><span>hotels</span></div>
+                                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/bus.png" alt="">car rentals</div>
+                                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/departure.png" alt="">flights</div>
+                                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/island.png" alt="">trips</div>
+                                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/cruise.png" alt="">cruises</div>
+                                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="images/diving.png" alt="">activities</div>
+                                    </div>
+                                </div>
+
+                                <!-- Search Panel -->
+
+
+                                <form action="../offre/new" method="POST" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+                                    {{ form_start(form) }}
+                                    <div class="search_item">
+                                        <div>Votre email</div>
+                                        {{ form_widget(form.email, {'attr': {'placeholder': 'email'}}) }}
+                                    </div>
+                                    <div class="search_item">
+                                        <div>type d'offre</div>
+                                        {{ form_widget(form.type, {'attr': {'placeholder': 'type'}}) }}
+                                    </div>
+                                    <button class="btn">{{ button_label|default('submit') }}</button>
+                                    {{ form_end(form) }}
+
+                                </form>
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offers -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1 temp_col"></div>
+                    <div class="col-lg-11">
+
+                        <!-- Offers Sorting -->
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}

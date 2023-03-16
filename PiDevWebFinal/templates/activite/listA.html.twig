@@ -1,0 +1,60 @@
+<style>
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10px;
+        width: 100%;
+        table-layout:fixed;
+    }
+
+    td {
+        border: 2px solid black;
+        text-align: center;
+        padding: 10px;
+        font-size: x-small;
+    }
+
+    tr {
+        background-color: bisque;
+    }
+
+    th{
+      font-size: large;
+        background-color: #cc8800;
+    }
+</style>
+
+{#  <title>Activite index</title> #}
+
+{% block TbaleContent %}
+    <h1 align="center" style="background-color: #805500" >LISTES DES ACTIVITES </h1><hr>{# balise hr pour faire un trait   #}
+
+    <table align="center" class="table" style="width:100%" border="1"
+            >
+        <thead>
+        <tr height="300px">
+            {#  <th>IdActivite</th> #}
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Nom de la catégorie</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+                {#   <td>{{ activite.idActivite }}</td> #}
+                <td>{{ activite.titre }}</td>
+                <td>{{ activite.date ? activite.date|date('Y-m-d') : '' }}</td>
+                <td>{{ activite.description }}</td>
+                <td>{{ activite.getIdCategorie() }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

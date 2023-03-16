@@ -1,0 +1,36 @@
+
+
+
+
+        {% block body %}
+
+            <title>lite des Abonnements</title>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>IdAbonnement</th>
+                    <th>DateDebut</th>
+                    <th>DateFin</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for abonnement in abonnements %}
+                    <tr>
+                        <td>{{ abonnement.idAbonnement }}</td>
+                        <td>{{ abonnement.dateDebut|date('Y-m-d') }}</td>
+                        <td>{{ abonnement.dateFin|date('Y-m-d') }}</td>
+                        <td>{{ abonnement.type }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+        {% endblock %}

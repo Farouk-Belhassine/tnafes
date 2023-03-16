@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/controlsfx-8.40.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/poi-ooxml-3.13-20150929.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/poi-3.13-20150929.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/zxing-j2se-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/javax.mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/poi-ooxml-schemas-3.13-20150929.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/qrgen-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itextpdf-5.5.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/zxing-core-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/statistics-1.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/Bulk_SMS_Library.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

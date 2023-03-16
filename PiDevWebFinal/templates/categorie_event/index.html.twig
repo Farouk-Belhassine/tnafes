@@ -1,0 +1,37 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+<title>Categorie </title>
+{% endblock %}
+{% block titre %}
+<div class="card-header">Afficher les Categories   {% endblock %}
+{% block container %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Thematique</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorie_event in categorie_events %}
+            <tr>
+                <td>{{ categorie_event.thematique }}</td>
+                <td>
+                    <a href="{{ path('categorie_event_show', {'idCategEvent': categorie_event.idCategEvent}) }}">Afficher</a>
+                    <a href="{{ path('categorie_event_edit', {'idCategEvent': categorie_event.idCategEvent}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_event_new') }}">Ajouter</a>
+{% endblock %}

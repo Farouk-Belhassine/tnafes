@@ -1,0 +1,13 @@
+{% extends 'baseback2.html.twig' %}
+
+{%  block TbaleTitle %}
+    <div class="card-header">Table des articles<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+{% block TbaleContent %}
+    <h1>Create new Article</h1>
+
+    {{ include('article/_form.html.twig') }}
+
+    <a href="{{ path('article_index') }}">back to list</a>
+{% endblock %}

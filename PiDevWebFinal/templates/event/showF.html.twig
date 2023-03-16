@@ -1,0 +1,76 @@
+{% extends 'basefront.html.twig' %}
+
+
+
+
+
+						{% block Post %}
+<div class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog_post_container">
+                            <div class="blog_post">
+
+
+                                    <div class="blog_post_image">
+                                        <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                                            <div class="blog_post_day"> {{ event.nbPlace }}</div>
+                                            <div class="blog_post_month">{{ event.dateEvent|date('d/m/Y') }}</div>
+                                        </div>
+                                    <img src="{{vich_uploader_asset(event,'imageFile') }}" alt="https://unsplash.com/@anniespratt">
+                                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
+
+                                        {% if (event.nbPlace!=0) and (event.dateEvent > date('now')   ) %}
+                                        <div id="btn" class="button intro_button"><div class="button_bcg"></div>
+                                            {% for part in participation %}
+                                            {% if part.idClient.id==app.user.id %}
+                                            <a  href="{{ path('participation_new',{'idEvent': event.idEvent}) }}" onclick="return false;" >Vous avez déja participer<span></span><span></span><span></span></a>
+                                            {% else %}
+
+                                            <a  href="{{ path('participation_new',{'idEvent': event.idEvent}) }}">Participer<span></span><span></span><span></span></a></div></div>
+                                        {% endif %}
+                                        {% if part.datePart is null %}
+                                            <a  href="{{ path('participation_new',{'idEvent': event.idEvent}) }}">Participer<span></span><span></span><span></span></a>
+                                        {% endif %}
+                                        {% endfor %}
+
+                                         <a  href="{{ path('participation_new',{'idEvent': event.idEvent}) }}">Participer<span></span><span></span><span></span></a>
+                                      {% endif %}
+                                        {% for flashMessage in app.session.flashbag.get('notice') %}
+                                        {% if event.dateEvent < date('now')    %}
+
+
+
+                                            <div class="alert alert-danger">
+                                                {{ flashMessage }}
+                                            </div>
+                                        {% endif %}
+                                        {% endfor %}
+
+
+
+
+                                    </div>
+                                    <div class="blog_post_meta">
+
+                                    </div>
+                                    <div class="blog_post_title"><a href="#">LE LIEU DE L'EVENEMENT : {{event.lieu}}</a></div>
+                                    <div class="blog_post_link"><a href="#">LA CATEGORIE : {{event.category}}</a></div>
+                                <div class="blog_post_text">
+                                    <p>DESCRIPTION :{{event.descriptions}}</p>
+                                </div>
+                            </div>
+                                </div>
+                                   </div>
+
+                                    </div>
+
+</div>
+</div>
+
+
+
+
+                        {% endblock %}
+

@@ -1,0 +1,80 @@
+{% extends 'basefront2.html.twig' %}
+
+{% block Art %}
+
+    <!-- Blog Content -->
+
+    <div class="col-lg-8">
+
+        <div class="blog_post_container">
+
+            <!-- Blog Post -->
+            {% for article in articles %}
+
+                <div class="blog_post">
+                    <u><font color="#ff7f50"><h3>Titre :</h3></font></u>
+                    <div class="blog_post_title"><mark><a href="#"><font color="#000000">{{ article.titre }}</font></a></mark></div>
+                    <div class="blog_post_image">
+                        <img src="{{ vich_uploader_asset(article,'imageFile') }}" height="300" width="100">
+                        {#  <img src="images/blog_1.jpg" alt="https://unsplash.com/@anniespratt"> #}
+                        <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                            {#  <div class="blog_post_day">01</div> #}
+                            <div class="blog_post_month"> Ajouté le: <br>{{ article.date ? article.date|date('Y-m-d') : '' }}</div>
+                        </div>
+                    </div>
+                    <div class="blog_post_meta">
+                        {#  <ul>
+                                    <li class="blog_post_meta_item"><a href="">by Lore Papp</a></li>
+                                    <li class="blog_post_meta_item"><a href="">Uncategorized</a></li>
+                                    <li class="blog_post_meta_item"><a href="">3 Comments</a></li>
+                                </ul> #}
+                    </div>
+                    <div class="blog_post_text">
+                        {% if ((article.description)|length >45)%}
+
+                            <div class="blog_post_title"><mark><a href="#" ><font color="#000000">{{ article.description|slice(0,45)~'...' }}</font></a></mark></div>
+                        {% else %}
+                            <div class="blog_post_title"><mark><a href="#" ><font color="#000000">{{ article.description}}</font></a></mark></div>
+                        {% endif%}
+
+                    </div>
+                    <div class="blog_post_link"><a href={{ path('showArticle', {'idArticle': article.idArticle}) }}>Lire la suite</a></div>
+                    {# pour avoir un trait de separation #}
+                    <P><HR NOSHADE></P>
+                </div>
+            {% endfor %}
+
+
+
+
+
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(articles) }}
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block latest %}
+
+    <div class="sidebar_latest_posts">
+    <div class="sidebar_title">Latest Posts</div>
+    <div class="latest_posts_container">
+    <ul>
+    {% for article in articles | sort((a,b) =>b.titre <=> a.titre) %}
+    <!-- Latest Post -->
+    <li class="latest_post clearfix">
+        <div class="latest_post_image">
+            <a href="#"><img src="{{ asset('images/latest_3.jpg')}}" alt=""></a>
+        </div>
+        <div class="latest_post_content">
+            <div class="latest_post_title trans_200"><a href="#">{{ article.titre }}</a></div>
+            <div class="latest_post_meta">
+                <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
+                <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+{% endblock %}

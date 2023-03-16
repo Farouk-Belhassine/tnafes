@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Participer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travelix Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/bootstrap4/bootstrap.min.css') }}">
+    <link href="{{ asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+</head>
+
+<body>
+
+<div class="super_container">
+
+    <!-- Header -->
+
+
+
+    {% include 'navbar.html.twig' %}
+
+    <!-- Home -->
+
+
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll"><img src="{{ asset('/images/images/meditation.jpg') }}">
+            <div class="home_slider_content text-center">
+                <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+                    <h1>votre </h1>
+                    <h1> calme avec Tnafes</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+
+    <div class="contact_form_section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <!-- Contact Form -->
+                    <div class="contact_form_container">
+
+                        <div class="contact_title text-center">Participer
+                        </div>
+                        {% block Ajoutparticipation %}
+
+                        <input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Name" required="required" data-error="Name is required.">
+                            <input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" required="required" data-error="Email is required.">
+                            <input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Subject" required="required" data-error="Subject is required.">
+                            <textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+                            <button type="submit" id="form_submit_button" class="form_submit_button button trans_200">send message<span></span><span></span><span></span></button>
+                        {% endblock  %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About -->
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+
+                    <!-- About - Image -->
+                    <div>
+                        <img src="{{ asset('images/yoga.png') }}" alt="">
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <!-- About - Content -->
+
+                    <div class="about_content">
+                        <div class="logo_container about_logo">
+                            <div class="logo"><a href="#"><!--<img src="{{ asset('images/123.png') }}" alt="">-->Tnafes</a></div>
+                        </div>
+                        <p class="about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula iaculis consequat nisl. Nunc et suscipit urna pretium.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <!-- About Info -->
+
+                    <div class="about_info">
+                        <ul class="contact_info_list">
+                            <li class="contact_info_item d-flex flex-row">
+                                <div><div class="contact_info_icon"><img src="{{ asset('images/placeholder.svg') }}" alt=""></div></div>
+                                <div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
+                            </li>
+                            <li class="contact_info_item d-flex flex-row">
+                                <div><div class="contact_info_icon"><img src="{{ asset('images/phone-call.svg') }}" alt=""></div></div>
+                                <div class="contact_info_text">2556-808-8613</div>
+                            </li>
+                            <li class="contact_info_item d-flex flex-row">
+                                <div><div class="contact_info_icon"><img src="{{ asset('images/message.svg') }}" alt=""></div></div>
+                                <div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
+                            </li>
+                            <li class="contact_info_item d-flex flex-row">
+                                <div><div class="contact_info_icon"><img src="{{ asset('images/planet-earth.svg') }}" alt=""></div></div>
+                                <div class="contact_info_text"><a href="https://colorlib.com">www.colorlib.com</a></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Map -->
+
+
+
+
+
+</div>
+
+<script src="{{ asset('js/blog_custom.js') }}"></script>
+<script src="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+<script src="{{ asset('plugins/easing/easing.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('plugins/colorbox/jquery.colorbox-min.js') }}"></script>
+<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('styles/bootstrap4/popper.js') }}"></script>
+<script src="{{ asset('styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/parallax-js-master/parallax.min.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="{{ asset('js/contact_custom.js') }}"></script>
+<script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+<!-- Include Flashy default partial -->
+{{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+</body>
+
+</html>

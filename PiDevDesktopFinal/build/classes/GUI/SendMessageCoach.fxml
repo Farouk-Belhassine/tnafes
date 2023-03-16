@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="612.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SendMessageCoachController">
+   <children>
+      <Button fx:id="btnEnvoyer" layoutX="215.0" layoutY="399.0" mnemonicParsing="false" onAction="#EnvoyerMessage" prefHeight="33.0" prefWidth="183.0" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;" text="envoyer">
+         <font>
+            <Font name="Calibri Italic" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <JFXTextArea fx:id="textMessage" layoutX="86.0" layoutY="200.0" prefHeight="174.0" prefWidth="441.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </JFXTextArea>
+   </children>
+</AnchorPane>

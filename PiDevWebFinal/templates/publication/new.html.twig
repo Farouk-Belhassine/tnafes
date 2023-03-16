@@ -1,0 +1,13 @@
+{% extends 'baseadd.html.twig' %}
+
+
+{% block body %}
+    {% block titreForm %}Nouvelle Publication{% endblock %}
+    {% block addForm %}
+        {{ include('publication/_form.html.twig') }}
+
+        <a href="{{ path('publication_index') }}">Retour</a>
+    {% endblock %}
+
+
+{% endblock %}

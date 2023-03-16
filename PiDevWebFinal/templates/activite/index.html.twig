@@ -1,0 +1,63 @@
+{% extends 'baseback2.html.twig' %}
+
+
+{%  block TbaleTitle %}
+    <div class="card-header">Table des activitées<!--titre mtaa tableau wala elli thebou aalih--></div>
+{% endblock %}
+
+{#  <title>Activite index</title> #}
+
+{% block TbaleContent %}
+    <h1>Activite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+               {#  <th>IdActivite</th> #}
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Nom de la catégorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+              {#   <td>{{ activite.idActivite }}</td> #}
+                <td>{{ activite.titre }}</td>
+                <td>{{ activite.date ? activite.date|date('Y-m-d') : '' }}</td>
+                <td>{{ activite.description }}</td>
+                <td>{{ activite.getIdCategorie() }}</td>
+                <td>
+                    <a href="{{ path('activite_show', {'idActivite': activite.idActivite}) }}">show</a>
+                    <a href="{{ path('activite_edit', {'idActivite': activite.idActivite}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('activite_new') }}">Create new</a>
+    <br>
+    <a href="{{ path('activite_list') }}">Imprimer</a>
+
+    <P><HR NOSHADE></P>
+    {# div du statistiques #}
+    <br>
+    <div id="div_chart" align="center"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        {{ gc_draw(piechart, 'div_chart') }}
+    </script>
+    <br>
+
+
+
+
+{% endblock %}

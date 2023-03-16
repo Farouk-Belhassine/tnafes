@@ -1,0 +1,5 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form_widget(form) }}
+{{ form_row(form.captchaCode) }}
+    <button class="btn">{{ button_label|default('Envoyer') }}</button>
+{{ form_end(form) }}

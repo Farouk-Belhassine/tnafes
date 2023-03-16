@@ -1,0 +1,11 @@
+{{form_start(form, {'attr':{'novalidate': 'novalidate'}})}} {#{'attr':{'novalidate': 'novalidate'}} : c'est pour désactiver les controle de saisie html#}
+
+
+
+
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{#  {{ form_row(form.idCategorie, {'full_name':'nom'}) }} #}
+
+{{ form_end(form) }}

@@ -1,0 +1,18 @@
+{% extends 'baseback.html.twig' %}
+
+{% block title %}
+
+<title>Edit Event</title>
+{% endblock %}
+{% block titre %}
+<div class="card-header">Modifier un evenement
+{% endblock %}
+{% block container %}
+
+
+    {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('event_index') }}">Retour</a>
+
+    {{ include('event/_delete_form.html.twig') }}
+{% endblock %}
